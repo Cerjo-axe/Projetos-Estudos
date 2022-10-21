@@ -19,7 +19,7 @@ class Engine
     end
 
     def create_player(number)
-        puts "digite nome:"
+        puts "(Insert name):"
         name = gets.chomp
         if number==1
             symbol = "X"
@@ -37,12 +37,15 @@ class Engine
     end
 
     def game_loop
-        puts @board.iscomplete?
         while @board.iscomplete? do
+            puts player_mes(current_player.name)
             player_turn(current_player)
             @board.showBoard()
+            if @board.iswinner?
+                puts winner_mes(current_player.name)
+                break
+            end
             change_player
-            puts current_player.symbol
         end
     end
 
@@ -65,7 +68,3 @@ class Engine
         end
     end
 end
-
-
-testing=Engine.new
-testing.start_game()
