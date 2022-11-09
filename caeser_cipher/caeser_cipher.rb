@@ -14,4 +14,3 @@ def converter(message, shift)
 end
 
 
-puts converter("8932950Zocoro", 6)
